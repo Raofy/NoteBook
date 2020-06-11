@@ -72,8 +72,13 @@
   ![指定范围取出](image/Redis_List_Lrange1.png)
   ![取出元素](image/Redis_List_Lrange2.png)
   
-  pop,它从list中删除元素并同时返回删除的值。可以在左边或右边操作
+  综上总结：对于Redis的Lrange的提取数据操作，实现过程
+  ![实现过程](image/Redis_List_Lrange3.png)
   
+  pop,它从list中删除元素并同时返回删除的值。可以在左边或右边操作
+  ![删除元素](image/Redis_List_Lrange4.png)
+  
+  使用LTRIM把list从左边截取指定长度
   
   **使用场景**
 
@@ -88,3 +93,33 @@
 - Sort Set 类型（有序Set集合）
 
 - Hash 类型
+
+# 5.Redis复制
+上面有提到，Redis支持主从复制，基于Redis的基础上，要配置Redis的主从复制是非常方便的。主从复制就是从服务器（slave）精确地复制主服务器（master）的数据。
+# 6.Redis事务
+MULTI 、 EXEC 、 DISCARD 和 WATCH 是 Redis 事务相关的命令。事务可以一次执行多个命令。
+## Redis事务有两个重要的保证指标：
+- 事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。而且执行的过程中，不会被其他客户端发送来的命令请求所打断。
+- 事务是一个原子操作：事务中的命令要么全部被执行，要么全部都不执行。
+## EXEC命令
+作用：触发并执行所事务的命令
+## MULTI命令
+作用：开启一个事务，向服务器端发送一系列命令，但并不会马上执行，会在队列里面等待着，直至执行EXEC命令
+## DISCARD命令
+作用：清空排列在队列里面的事务，并放弃执行事务，客户端会从事务的状态退出来
+## WATCH命令
+作用：WATCH 使得 EXEC 命令需要有条件地执行： 事务只能在所有被监视键都没有被修改的前提下执行， 如果这个前提不能满足的话，事务就不会被执行。它可以被多次调用，直至到
+EXEC命令执行完。
+#7.Redis持久化方式
+- RDB持久化方式
+在指定时间间隔内进行快照存储
+- AOF持久化方式
+记录对服务器写的操作，AOF命令会以Redis协议追加到每次写操作文件的结尾，当服务器重启的时候执行这些命令进行恢复原始数据。
+
+# 8.Java使用Redis
+首先下载Redis的jar包 [Jedis](https://repo1.maven.org/maven2/redis/clients/jedis/3.2.0/jedis-3.2.0.jar)
+将包导入到项目工程中（右键工程——>Open Module Setting——>将Jar包添加进来）
+
+# 9.Spring使用Redis
+
+# 10.Springboot使用Redis
