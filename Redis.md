@@ -90,32 +90,32 @@
   
   首先在链表的右边添加两个元素A和B，然后再在链表的左边添加First元素
   
-  ![往List中添加元素](image/Redis_List.png)
+  ![往List中添加元素](image/Redis_Command_List.png)
   
   其次从Lrange取出指定范围的元素
   
-  ![取出元素](image/Redis_List_Lrange.png)
+  ![取出元素](image/Redis_Command_List_Lrange.png)
   
   lrange的下标索引为开始0位置到最后一个元素的位置，-1对应链表中最后一个元素，-2代表链表中倒数第二个元素，以此类推。对于lrange命令中索引的参数理解
   示例：
   就刚才的Key-Value数据，操作执行命令如下
   
-  ![指定范围取出](image/Redis_List_Lrange1.png)
+  ![指定范围取出](image/Redis_Command_List_Lrange1.png)
   
-  ![取出元素](image/Redis_List_Lrange2.png)
+  ![取出元素](image/Redis_Command_List_Lrange2.png)
   
   综上总结：对于Redis的Lrange的提取数据操作，实现过程
   
-  ![实现过程](image/Redis_List_Lrange3.png)
+  ![实现过程](image/Redis_Command_List_Lrange3.png)
   
   pop,它从list中删除元素并同时返回删除的值。可以在左边或右边操作
-  ![删除元素](image/Redis_List_Lrange4.png)
+  ![删除元素](image/Redis_Command_List_Lrange4.png)
   
   使用LTRIM把list从左边截取指定长度
   
-  ![添加元素](image/Redis_List_Ltrim1.png)
+  ![添加元素](image/Redis_Command_List_Ltrim.png)
   
-  ![按长度为3进行截取](image/Redis_List_Ltrim2.png)
+  ![按长度为3进行截取](image/Redis_Command_List_Ltrim1.png)
   
   **使用场景**
 
@@ -127,10 +127,78 @@
 
 - Set 类型
 
+    Redis Set类型是无序排列，常见的操作指令如下：
+    
+    添加元素
+    - 语法格式：sadd key value1 value2 ...
+    
+        执行结果如图所示
+        
+        ![sadd执行结果](image/Redis_Command_Set_sadd.png)
+        
+    是否包含指定元素
+     
+    - 语法格式：sismember key member(value)
+        
+         执行结果如图显示
+         
+         ![sismember](image/Redis_Command_Set_sismember.png)
+         
+     随机删除一个元素， 返回给客户端
+     
+     - 语法格式：spop key 
+     
+         执行结果
+         ![spop](image/Redis_Command_Set_spop.png)
+     查看一个名为key的set中所有元素
+     
+     - 语法格式：smembers key
+     
+         执行结果
+         ![smembers执行结果](image/Redis_Command_Set_smembers.png)
+        
+     集合中元素的数量
+     
+     - 语法格式：scard key
+     
+         执行结果
+         ![scard执行结果](image/Redis_Command_Set_scard.png)
+           
+    
+    
 
 - Sort Set 类型（有序Set集合）
 
-
+     添加元素
+     
+     - 语法格式： zadd key score1 value1 score2 value2 ...
+     
+        执行结果
+     
+     查询所有结果
+     
+     - 语法格式： zrange key start end
+     
+        执行结果
+        
+     从最小到最大查询所有结果
+     
+     - 语法格式：zrevrange key start end
+     
+        执行结果
+       
+     返回指定范围内的成员数
+     
+     - 语法格式：zlexcount key min max
+     
+        执行结果
+        
+     返回有序集合中指定分数间的元素，按小到大进行排列
+     
+     - 语法格式：zrangebyscore key min max 
+     
+        执行结果
+        
 - Hash 类型
 
 # 5.Redis复制
@@ -308,7 +376,7 @@ EXEC命令执行完。
 
 ##执行结果，如图所示
 
-![操作SortList类型](image/Redis_Java_SortList.png)
+![操作SortList类型](image/Redis_Java_SortSet.png)
 
 
 # 9.Spring使用Redis
