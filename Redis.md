@@ -10,7 +10,6 @@
 
 而Redis里面也是使用到主从复制的
 
-##小结：
 ###关系型数据库
 
 1.特点
@@ -40,10 +39,6 @@
 - 主从同步
 
 - 支持一定的事务能力
-
-  
-
-  
 
 # 3.Redis的应用场景
 
@@ -78,11 +73,44 @@
 
 - HyperLogLogs: 这是被用于估计一个 set 中元素数量的概率性的数据结构。别害怕，它比看起来的样子要简单…参见本教程的 HyperLogLog 部分
 
-  
+[在线Redis命令窗口](http://try.redis.io/) 
 
 - Redis的String 类型
 
+  设置元素
   
+  语法格式 set key value
+  
+  语法格式 mset key value1 value2 ...
+    
+  执行结果
+  
+  [设置一个值](image/Redis_Command_String_set.png)
+  
+  [设置多个值](image/Redis_Command_String_mset.png)
+
+  添加元素
+  
+  语法格式 append key value (追加一个元素)
+  
+  执行结果
+  
+  [append追加元素](image/Redis_Command_String_append.png)
+  
+  
+  获取元素
+  
+  语法格式 get key value
+  
+  语法格式 mget key value
+  
+  执行结果
+  
+  [获取一个元素](image/Redis_Command_String_get.png)
+  
+  [获取多个元素](image/Redis_Command_String_mget.png)
+  
+  [String命令详情](http://www.redis.cn/commands.html#string)
 
 - Redis的List 类型
 
@@ -116,6 +144,8 @@
   ![添加元素](image/Redis_Command_List_Ltrim.png)
   
   ![按长度为3进行截取](image/Redis_Command_List_Ltrim1.png)
+  
+  [List命令详情](http://www.redis.cn/commands.html#list)
   
   **使用场景**
 
@@ -164,7 +194,7 @@
          执行结果
          ![scard执行结果](image/Redis_Command_Set_scard.png)
            
-    
+          [Set命令详情](redis.cn/commands.html#set)
     
 
 - Sort Set 类型（有序Set集合）
@@ -174,32 +204,79 @@
      - 语法格式： zadd key score1 value1 score2 value2 ...
      
         执行结果
-     
+        ![添加元素](image/Redis_Command_SortSet_zadd.png)
+        
      查询所有结果
      
      - 语法格式： zrange key start end
      
         执行结果
+        ![获取指定范围内元素](image/Redis_Command_SortSet_zrange.png)
         
      从最小到最大查询所有结果
      
      - 语法格式：zrevrange key start end
      
         执行结果
-       
+       ![反向输出指定范围内元素](image/Redis_Command_SortSet_zrevrange.png)
      返回指定范围内的成员数
      
      - 语法格式：zlexcount key min max
      
         执行结果
+        ![返回指定范围内元素](image/Redis_Command_SortSet_zlexcount.png)
         
      返回有序集合中指定分数间的元素，按小到大进行排列
      
      - 语法格式：zrangebyscore key min max 
      
         执行结果
+        ![有序输出范围内元素](image/Redis_Command_SortSet_zrangebyscore.png)
+        
+        [SortSet命令详情](http://www.redis.cn/commands.html#sorted_set)
         
 - Hash 类型
+
+    设置元素
+    
+    语法格式：hset key filed value
+    
+    执行结果
+    ![设置一个元素](image/Redis_Command_Hash_hset.png)
+    
+    语法格式：hmset key filed1 value1 filed2 value2 ..
+    
+    执行结果
+    ![设置多个元素](image/Redis_Command_Hash_hmset.png)
+    
+    获取元素
+    
+    语法格式：hget key filed
+    
+    执行结果
+    ![获取一个元素](image/Redis_Command_Hash_hget.png)
+    
+    语法格式：hmget key filed1 filed2...
+    
+    执行结果
+    ![获取多个元素](image/Redis_Command_Hash_hmget.png)
+     
+    语法格式：hgetall key
+    
+    执行结果
+    ![获取全部元素](image/Redis_Command_Hash_hgetall.png)
+     
+    删除元素
+    
+    语法格式：hdel key filed1 filed2..
+    
+    执行结果
+    ![删除一个元素](image/Redis_Command_Hash_hdel.png)
+    
+    [hash具体的命令使用](http://www.redis.cn/commands.html#hash)
+    
+    
+    
 
 # 5.Redis复制
 上面有提到，Redis支持主从复制，基于Redis的基础上，要配置Redis的主从复制是非常方便的。主从复制就是从服务器（slave）精确地复制主服务器（master）的数据。
