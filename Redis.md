@@ -1,4 +1,4 @@
-# 1.认识Redis
+# 认识Redis
 
 什么是Redis？Redis也叫远程字典服务，它本身是用C语言进行编写的一款支持网络、基于内存亦可持久化的日志型的、支持多种语言API的、存储类型是key-value的**非关系型数据库**。简言之就是Redis是一款高性能的Key-Value的数据库。它的高性能主要体现在它基于内存进行操作的，在对数据进行读写方面的速度都是非常快的。
 
@@ -23,12 +23,12 @@
 ###非关系型数据库
 1.优点
    - 存储结构是基于Key-value的对应关系，处理速度快
-
+   
 2.缺点
    - 有限的查询方式
 
 
-# 2.Redis的自身特点
+# Redis的自身特点
 
 - 支持每秒十几万的读写操作
 
@@ -40,7 +40,7 @@
 
 - 支持一定的事务能力
 
-# 3.Redis的应用场景
+# Redis的应用场景
 
 结合上述讲到的特点，它的应用场景如下：
 
@@ -55,7 +55,7 @@
 
 
 
-# 4.Redis的数据类型
+# Redis的数据类型
 
 既然它作为一款数据库软件，那它的所能够存储的数据类型有哪些？Redis并不是简单的key-value存储，实际上他是一个数据结构服务器，支持不同类型的值。也就是说，你不必仅仅把字符串当作键所指向的值。下列这些数据类型都可作为值类型：
 
@@ -110,7 +110,7 @@
   
   ![获取多个元素](image/Redis_Command_String_mget.png)
   
-  ![String命令详情](http://www.redis.cn/commands.html#string)
+  [String命令详情](http://www.redis.cn/commands.html#string)
 
 - Redis的List 类型
 
@@ -155,7 +155,7 @@
 
   在博客引擎实现中，你可为每篇日志设置一个list，在该list中推入博客评论，等等。
 
-- Set 类型
+- Redis的Set类型
 
     Redis Set类型是无序排列，常见的操作指令如下：
     
@@ -197,7 +197,7 @@
           [Set命令详情](redis.cn/commands.html#set)
     
 
-- Sort Set 类型（有序Set集合）
+- Redis的Sort Set类型（有序Set集合）
 
      添加元素
      
@@ -235,7 +235,7 @@
         
         [SortSet命令详情](http://www.redis.cn/commands.html#sorted_set)
         
-- Hash 类型
+- Redis的Hash类型
 
     设置元素
     
@@ -278,9 +278,9 @@
     
     
 
-# 5.Redis复制
+# Redis复制
 上面有提到，Redis支持主从复制，基于Redis的基础上，要配置Redis的主从复制是非常方便的。主从复制就是从服务器（slave）精确地复制主服务器（master）的数据。
-# 6.Redis事务
+# Redis事务
 MULTI 、 EXEC 、 DISCARD 和 WATCH 是 Redis 事务相关的命令。事务可以一次执行多个命令。
 ## Redis事务有两个重要的保证指标：
 - 事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。而且执行的过程中，不会被其他客户端发送来的命令请求所打断。
@@ -302,14 +302,14 @@ MULTI 、 EXEC 、 DISCARD 和 WATCH 是 Redis 事务相关的命令。事务可
 作用：WATCH 使得 EXEC 命令需要有条件地执行： 事务只能在所有被监视键都没有被修改的前提下执行， 如果这个前提不能满足的话，事务就不会被执行。它可以被多次调用，直至到
 EXEC命令执行完。
 
-#7.Redis持久化方式
+# Redis持久化方式
 
 - RDB持久化方式。
 在指定时间间隔内进行快照存储。
 - AOF持久化方式。
 记录对服务器写的操作，AOF命令会以Redis协议追加到每次写操作文件的结尾，当服务器重启的时候执行这些命令进行恢复原始数据。
 
-# 8.Java使用Redis
+# Java使用Redis
 
 ##首先下载Redis的jar包 [Jedis](https://repo1.maven.org/maven2/redis/clients/jedis/3.2.0/jedis-3.2.0.jar)
 
@@ -456,9 +456,9 @@ EXEC命令执行完。
 ![操作SortList类型](image/Redis_Java_SortSet.png)
 
 
-# 9.Spring使用Redis
+# Spring使用Redis
 
-# 10.Springboot使用Redis
+# Springboot使用Redis
 
 ##首先创建工程，然后需要在config配置文件中进行配置，如图所示
 
