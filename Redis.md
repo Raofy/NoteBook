@@ -85,9 +85,9 @@
     
   执行结果
   
-  [设置一个值](image/Redis_Command_String_set.png)
+  ![设置一个值](image/Redis_Command_String_set.png)
   
-  [设置多个值](image/Redis_Command_String_mset.png)
+  ![设置多个值](image/Redis_Command_String_mset.png)
 
   添加元素
   
@@ -95,7 +95,7 @@
   
   执行结果
   
-  [append追加元素](image/Redis_Command_String_append.png)
+  ![append追加元素](image/Redis_Command_String_append.png)
   
   
   获取元素
@@ -106,11 +106,11 @@
   
   执行结果
   
-  [获取一个元素](image/Redis_Command_String_get.png)
+  ![获取一个元素](image/Redis_Command_String_get.png)
   
-  [获取多个元素](image/Redis_Command_String_mget.png)
+  ![获取多个元素](image/Redis_Command_String_mget.png)
   
-  [String命令详情](http://www.redis.cn/commands.html#string)
+  ![String命令详情](http://www.redis.cn/commands.html#string)
 
 - Redis的List 类型
 
