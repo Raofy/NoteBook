@@ -85,9 +85,9 @@
     
   执行结果
   
-  ![设置一个值](image/Redis_Command_String_set.png)
+  ![设置一个值](../image/Redis_Command_String_set.png)
   
-  ![设置多个值](image/Redis_Command_String_mset.png)
+  ![设置多个值](../image/Redis_Command_String_mset.png)
 
   添加元素
   
@@ -95,7 +95,7 @@
   
   执行结果
   
-  ![append追加元素](image/Redis_Command_String_append.png)
+  ![append追加元素](../image/Redis_Command_String_append.png)
   
   
   获取元素
@@ -106,9 +106,9 @@
   
   执行结果
   
-  ![获取一个元素](image/Redis_Command_String_get.png)
+  ![获取一个元素](../image/Redis_Command_String_get.png)
   
-  ![获取多个元素](image/Redis_Command_String_mget.png)
+  ![获取多个元素](../image/Redis_Command_String_mget.png)
   
   [String命令详情](http://www.redis.cn/commands.html#string)
 
@@ -118,32 +118,32 @@
   
   首先在链表的右边添加两个元素A和B，然后再在链表的左边添加First元素
   
-  ![往List中添加元素](image/Redis_Command_List.png)
+  ![往List中添加元素](../image/Redis_Command_List.png)
   
   其次从Lrange取出指定范围的元素
   
-  ![取出元素](image/Redis_Command_List_Lrange.png)
+  ![取出元素](../image/Redis_Command_List_Lrange.png)
   
   lrange的下标索引为开始0位置到最后一个元素的位置，-1对应链表中最后一个元素，-2代表链表中倒数第二个元素，以此类推。对于lrange命令中索引的参数理解
   示例：
   就刚才的Key-Value数据，操作执行命令如下
   
-  ![指定范围取出](image/Redis_Command_List_Lrange1.png)
+  ![指定范围取出](../image/Redis_Command_List_Lrange1.png)
   
-  ![取出元素](image/Redis_Command_List_Lrange2.png)
+  ![取出元素](../image/Redis_Command_List_Lrange2.png)
   
   综上总结：对于Redis的Lrange的提取数据操作，实现过程
   
-  ![实现过程](image/Redis_Command_List_Lrange3.png)
+  ![实现过程](../image/Redis_Command_List_Lrange3.png)
   
   pop,它从list中删除元素并同时返回删除的值。可以在左边或右边操作
-  ![删除元素](image/Redis_Command_List_Lrange4.png)
+  ![删除元素](../image/Redis_Command_List_Lrange4.png)
   
   使用LTRIM把list从左边截取指定长度
   
-  ![添加元素](image/Redis_Command_List_Ltrim.png)
+  ![添加元素](../image/Redis_Command_List_Ltrim.png)
   
-  ![按长度为3进行截取](image/Redis_Command_List_Ltrim1.png)
+  ![按长度为3进行截取](../image/Redis_Command_List_Ltrim1.png)
   
   [List命令详情](http://www.redis.cn/commands.html#list)
   
@@ -164,7 +164,7 @@
     
         执行结果如图所示
         
-        ![sadd执行结果](image/Redis_Command_Set_sadd.png)
+        ![sadd执行结果](../image/Redis_Command_Set_sadd.png)
         
     是否包含指定元素
      
@@ -172,27 +172,27 @@
         
          执行结果如图显示
          
-         ![sismember](image/Redis_Command_Set_sismember.png)
+         ![sismember](../image/Redis_Command_Set_sismember.png)
          
      随机删除一个元素， 返回给客户端
      
      - 语法格式：spop key 
      
          执行结果
-         ![spop](image/Redis_Command_Set_spop.png)
+         ![spop](../image/Redis_Command_Set_spop.png)
      查看一个名为key的set中所有元素
      
      - 语法格式：smembers key
      
          执行结果
-         ![smembers执行结果](image/Redis_Command_Set_smembers.png)
+         ![smembers执行结果](../image/Redis_Command_Set_smembers.png)
         
      集合中元素的数量
      
      - 语法格式：scard key
      
          执行结果
-         ![scard执行结果](image/Redis_Command_Set_scard.png)
+         ![scard执行结果](../image/Redis_Command_Set_scard.png)
            
           [Set命令详情](redis.cn/commands.html#set)
     
@@ -204,34 +204,34 @@
      - 语法格式： zadd key score1 value1 score2 value2 ...
      
         执行结果
-        ![添加元素](image/Redis_Command_SortSet_zadd.png)
+        ![添加元素](../image/Redis_Command_SortSet_zadd.png)
         
      查询所有结果
      
      - 语法格式： zrange key start end
      
         执行结果
-        ![获取指定范围内元素](image/Redis_Command_SortSet_zrange.png)
+        ![获取指定范围内元素](../image/Redis_Command_SortSet_zrange.png)
         
      从最小到最大查询所有结果
      
      - 语法格式：zrevrange key start end
      
         执行结果
-       ![反向输出指定范围内元素](image/Redis_Command_SortSet_zrevrange.png)
+       ![反向输出指定范围内元素](../image/Redis_Command_SortSet_zrevrange.png)
      返回指定范围内的成员数
      
      - 语法格式：zlexcount key min max
      
         执行结果
-        ![返回指定范围内元素](image/Redis_Command_SortSet_zlexcount.png)
+        ![返回指定范围内元素](../image/Redis_Command_SortSet_zlexcount.png)
         
      返回有序集合中指定分数间的元素，按小到大进行排列
      
      - 语法格式：zrangebyscore key min max 
      
         执行结果
-        ![有序输出范围内元素](image/Redis_Command_SortSet_zrangebyscore.png)
+        ![有序输出范围内元素](../image/Redis_Command_SortSet_zrangebyscore.png)
         
         [SortSet命令详情](http://www.redis.cn/commands.html#sorted_set)
         
@@ -242,36 +242,36 @@
     语法格式：hset key filed value
     
     执行结果
-    ![设置一个元素](image/Redis_Command_Hash_hset.png)
+    ![设置一个元素](../image/Redis_Command_Hash_hset.png)
     
     语法格式：hmset key filed1 value1 filed2 value2 ..
     
     执行结果
-    ![设置多个元素](image/Redis_Command_Hash_hmset.png)
+    ![设置多个元素](../image/Redis_Command_Hash_hmset.png)
     
     获取元素
     
     语法格式：hget key filed
     
     执行结果
-    ![获取一个元素](image/Redis_Command_Hash_hget.png)
+    ![获取一个元素](../image/Redis_Command_Hash_hget.png)
     
     语法格式：hmget key filed1 filed2...
     
     执行结果
-    ![获取多个元素](image/Redis_Command_Hash_hmget.png)
+    ![获取多个元素](../image/Redis_Command_Hash_hmget.png)
      
     语法格式：hgetall key
     
     执行结果
-    ![获取全部元素](image/Redis_Command_Hash_hgetall.png)
+    ![获取全部元素](../image/Redis_Command_Hash_hgetall.png)
      
     删除元素
     
     语法格式：hdel key filed1 filed2..
     
     执行结果
-    ![删除一个元素](image/Redis_Command_Hash_hdel.png)
+    ![删除一个元素](../image/Redis_Command_Hash_hdel.png)
     
     [hash具体的命令使用](http://www.redis.cn/commands.html#hash)
     
@@ -333,7 +333,7 @@ EXEC命令执行完。
 ```
    ##执行的结果显示
 
-![操作String类型](image/Redis_Java_String.png)
+![操作String类型](../image/Redis_Java_String.png)
 
 ##3.List类型
 
@@ -366,7 +366,7 @@ EXEC命令执行完。
 
 ##最终的执行结果为，如图所示
 
-![操作List类型](image/Redis_Java_List.png)
+![操作List类型](../image/Redis_Java_List.png)
 
 ##4.Set类型
 
@@ -392,7 +392,7 @@ EXEC命令执行完。
 
 ##执行结果如图所示
 
-![操作Set类型](image/Redis_Java_Set.png)
+![操作Set类型](../image/Redis_Java_Set.png)
 
 ##5.Hash类型
 
@@ -420,7 +420,7 @@ EXEC命令执行完。
 
 ##执行结果，如图
 
-![操作Hash类型](image/Redis_Java_Hash.png)
+![操作Hash类型](../image/Redis_Java_Hash.png)
 
 ##6.SortList类型
 
@@ -453,7 +453,7 @@ EXEC命令执行完。
 
 ##执行结果，如图所示
 
-![操作SortList类型](image/Redis_Java_SortSet.png)
+![操作SortList类型](../image/Redis_Java_SortSet.png)
 
 
 # Spring使用Redis
@@ -462,10 +462,10 @@ EXEC命令执行完。
 
 ##首先创建工程，然后需要在config配置文件中进行配置，如图所示
 
-![创建工程](image/Redis_Springboot_NewProject.png)
+![创建工程](../image/Redis_Springboot_NewProject.png)
 
 
-![配置文件](image/Redis_Springboot_config.png)
+![配置文件](../image/Redis_Springboot_config.png)
 
 主要进行远程访问地址、端口号和密码的配置
 ##1.String类型
@@ -483,7 +483,7 @@ EXEC命令执行完。
 ```
 ##执行结果
 
-![Sring类型](image/Redis_Springboot_String.png)
+![Sring类型](../image/Redis_Springboot_String.png)
 
 ##2.hash类型
 
@@ -504,7 +504,7 @@ EXEC命令执行完。
 
 ##运行结果
 
-![Hash类型](image/Redis_Springboot_Hash.png)
+![Hash类型](../image/Redis_Springboot_Hash.png)
 
 ##3.Set类型
 
@@ -534,7 +534,7 @@ EXEC命令执行完。
 
 ##执行结果
 
-![Set类型](image/Redis_Springboot_Set.png)
+![Set类型](../image/Redis_Springboot_Set.png)
 
 ##4.List类型
 
@@ -555,7 +555,7 @@ EXEC命令执行完。
 
 ##执行结果
 
-![List类型](image/Redis_Springboot_List.png)
+![List类型](../image/Redis_Springboot_List.png)
 
 ##5.SortSet类型
 
@@ -586,4 +586,4 @@ EXEC命令执行完。
 ```
 ##执行结果
 
-![sortset类型](image/Redis_Springboot_SortSet.png)
+![sortset类型](../image/Redis_Springboot_SortSet.png)
