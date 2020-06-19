@@ -14,27 +14,23 @@ Docker是一款基于Go语言实现的、开源的应用容器引擎
 ### 1.1 yum安装，安装Engine-Community
 #### 1.1.1 安装所需的软件包，yum-utils提供了yum-config-manager，device-mapper-persistent-data和lvm2
 
-```shell script
-yum install -y yum-utils device-mapper-persistent-data lvm2
-```
+
+`yum install -y yum-utils device-mapper-persistent-data lvm2``
 
 ### 1.2 设置yum仓库地址
 
-```shell script
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-```
+
+`yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
+
 
 ### 1.3 安装社区版docker-engine
 
-```shell script
-yum install docker-ce docker-ce-cli containerd.io
-```
+
+`yum install docker-ce docker-ce-cli containerd.io`
 
 ## 2.测试一下docker是否已经安装成功
 
-```shell script
-docker -v
-```
+`docker -v`
 
 如果显示docker的版本号，那么安装就成功了
 
@@ -43,28 +39,27 @@ docker -v
 ## 3.从仓库拉取镜像
 ### 3.1 修改配置文件，配置仓库地址，配置成国内的源
 
-```shell script
-vim /etc/docker/daemon.json
-#重启一下服务
-systemctl start docker.service
-#查看当前docker的运行状态
-systemctl status docker.service
-```
+`vim /etc/docker/daemon.json`
+
+### 3.2 重启一下服务
+
+`systemctl start docker.service`
+
+### 3.3 查看当前docker的运行状态
+
+`systemctl status docker.service`
 
 ![配置仓库文件](image/Docker_config.png)
 
 ![重新启动一下服务](image/Docker_Command_Start.png)
 ### 3.2 从公开仓库拉取命令
 
-````shell script
-docker pull morrorsname:tag
-````
+
+`docker pull morrorsname:tag`
 
 例如，拉取MySQL镜像，写版本号，默认拉取最新的版本
 
-```shell script
-docker pull mysql
-```
+`docker pull mysql`
 
 ![拉取Mysql镜像](image/Docker_Command_PullMySQL.png)
 
@@ -72,86 +67,78 @@ docker pull mysql
 ## 1.本地镜像管理
 ### 1.1 images 查看本地的镜像
 
-```shell script
-docker images
-```
+`docker images`
 
 ![查看镜像文件](image/Docker_Command_images.png)
 
 ### 1.2 rmi 删除镜像
 
-```shell script
-docker rmi name:tag 
-```
+
+`docker rmi name:tag `
+
 
 ## 2. 容器生命周期管理
 ### 2.1 rm 删除镜像
 
-```shell script
-docker image rm name:tag
-```
+
+`docker image rm name:tag`
 
 ### 2.2 run 启动镜像
 
-```shell script
-docker run name:tag
-```
+
+`docker run name:tag`
 
 ![运行一个镜像](image/Docker_Command_Run.png)
 
 ### 2.3 exec 进入容器
 #### 2.3.1 有时候容器实在后台进行运行的，需要进入容器的时候就要执行下面的命令了
 
-```shell script
-docker exec -it containername bash
-```
+
+`docker exec -it containername bash`
 
 #### 2.3.2 进入Mysql容器
 
-```shell script
-docker exec -it hardcore_feistel bash
-```
+
+`docker exec -it hardcore_feistel bash`
 
 ![进入容器](image/Docker_Command_Exec.png)
 #### 2.3.3 当需要时，我们可以退出容器
 
-```shell script
-exit
-```
+
+`exit`
 
 ![退出容器](image/Docker_Command_exit.png)
 
 ### 2.4 stop 停掉一个容器
 
-```shell script
-docker stop containerId
+`docker stop containerId`
+
 #或者是
-docker stop name
-```
+
+`docker stop name`
+
 
 #### 2.4.1 停掉Mysql容器，使用id可以略写
 
-```shell script
-docker stop 4c
-```
+
+`docker stop 4c`
+
 
 ![关闭容器](image/Docker_Command_Stop.png)
 
 ## 3.容器操作
 ### 3.1 ps 查看容器的状态
 
-```shell script
-docker ps
-```
+
+`docker ps`
 
 ![容器状态](image/Docker_Command_Ps.png)
 
 ## 4. 镜像仓库
 ### 4.1 pull 拉取镜像
 
-```shell script
-docker pull name:tag
-```
+
+`docker pull name:tag`
 
 ![拉取镜像](image/Docker_Command_PullMySQL.png)
 
@@ -204,9 +191,9 @@ CMD ["/bin/sh","-c","while true; do sleep 1000; done"]
 
 ## 2. 构建镜像
 
-```shell script
-docker build -t nginx:latest -f ./nginx/Dockerfile
-```
+
+`docker build -t nginx:latest -f ./nginx/Dockerfile`
+
 
 ## 3. 上传镜像
 
